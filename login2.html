@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Rendang</title>
+    <link rel="stylesheet" href="login2.css">
+</head>
+<body>
+    <form action="">
+       
+        <h2>LOGIN</h2>
+        <p>Payakumbuh Kota Bandung</p>
+        <label for="Email"> Email</label>
+        <input type="email" placeholder="example@gmail.com">
+        <label for="Password"> Password</label>
+        <input type="password" placeholder="Password">
+        <button type="submit">Login</button>
+        <a href="#">Forgot Password?</a>
+        <img src="image/rendang.jpeg" alt="">
+    </form>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const loginBtn = document.getElementById("loginBtn");
+
+            loginBtn.addEventListener("click", function (event) {
+                event.preventDefault(); // Mencegah submit form
+
+                // Efek animasi tombol saat ditekan
+                loginBtn.style.transform = "scale(0.9)";
+                setTimeout(() => {
+                    loginBtn.style.transform = "scale(1)";
+                }, 150);
+
+                // Validasi input
+                let email = document.getElementById("email");
+                let password = document.getElementById("password");
+
+                if (email.value === "" || password.value === "") {
+                    shakeInput(email);
+                    shakeInput(password);
+                } else {
+                    alert("Login sukses! (Simulasi)");
+                }
+            });
+
+            function shakeInput(input) {
+                input.style.border = "2px solid red";
+                input.style.animation = "shake 0.3s";
+
+                setTimeout(() => {
+                    input.style.animation = "";
+                    input.style.border = "1px solid #ccc";
+                }, 300);
+            }
+        });
+        </script>
+</body>
+</html>
